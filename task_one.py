@@ -3,7 +3,7 @@ import cv2
 faceCascadeFrontal = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 facecascadeProfile = cv2.CascadeClassifier('haarcascade_profileface.xml')
 
-additive = 10 # Добавка
+additive = 5 # Добавка
 direction = ""
 previous_face = [[0,0,0,0]] # Начальное положение
 
@@ -37,10 +37,9 @@ while True:
                     previous_face[0][1] + previous_face[0][3] - additive) > (faces[0][1] + faces[0][3]):
                 direction += " Smaller"
             previous_face = faces
-        if direction is not "": #Последнее направление движение будет выводиться до появления следующего
-            pre_dir = direction
-        #print(direction)
-        cv2.putText(img, pre_dir, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
+
+        print(direction)
+        cv2.putText(img, direction, (int(x), int(y)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
     resized_img = cv2.resize(img, (1000, 700))
     cv2.imshow('video', resized_img)
     direction = ""
