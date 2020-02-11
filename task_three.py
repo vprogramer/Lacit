@@ -6,8 +6,6 @@ import numpy as np
 #This function uses Sobel method to find border of an object.
 def use_Sobel(photo="image/rr.bmp"):
     img = cv2.imread(photo)
-    img = cv2.resize(img, (512, 1050))
-    img = cv2.rotate(img,cv2.ROTATE_90_CLOCKWISE)
 
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     grad_x = cv2.Sobel(gray, cv2.CV_16S, 1, 0, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
@@ -23,8 +21,6 @@ def use_Sobel(photo="image/rr.bmp"):
 # This function uses cv2.findContours to find border of an object.
 def use_findContours(photo="image/rr.bmp"):
     img = cv2.imread(photo)
-    img = cv2.resize(img, (512, 1050))
-    img = cv2.rotate(img,cv2.ROTATE_90_CLOCKWISE)
 
     # Settings for yellow skin.
     # hsv_min = np.array((5, 88, 31), np.uint8)
