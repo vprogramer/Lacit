@@ -7,9 +7,9 @@ import numpy as np
 def use_Sobel(photo="image/rr.bmp"):
     img = cv2.imread(photo)
 
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    grad_x = cv2.Sobel(gray, cv2.CV_16S, 1, 0, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
-    grad_y = cv2.Sobel(gray, cv2.CV_16S, 0, 1, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
+    gray_photo = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    grad_x = cv2.Sobel(gray_photo, cv2.CV_16S, 1, 0, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
+    grad_y = cv2.Sobel(gray_photo, cv2.CV_16S, 0, 1, ksize=3, scale=1, delta=0, borderType=cv2.BORDER_DEFAULT)
     abs_grad_x = cv2.convertScaleAbs(grad_x)
     abs_grad_y = cv2.convertScaleAbs(grad_y)
 
