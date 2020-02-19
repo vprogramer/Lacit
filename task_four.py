@@ -25,7 +25,7 @@ def use_findContours(photo="image/rr.bmp"):
 
     return contours[index_max_contour]
 
-#Get contours andwritee it in JSON
+#Get contours and write to JSON
 def write_json(name_json = 'skin_contours.json'):
     path = glob.glob("image/*.bmp")
     all_skin_contours = []
@@ -48,9 +48,11 @@ if __name__ == "__main__":
     name_json = 'skin_contours.json'
     write_json(name_json)
 
+    #Read JSON
     with open(name_json) as f:
         contours = json.load(f)
 
+    #Connect to server
     sock = socket.socket()
     sock.connect(('localhost', 9092))
     sock.send(pickle.dumps(contours))
