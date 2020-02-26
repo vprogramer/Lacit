@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+service Contour {
+	rpc Add(Photo) returns (Photo) {};
+}
+
+message Photo {
+	bytes photo = 1;
+}
+
